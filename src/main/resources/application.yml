@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: hzc778209
+    url: jdbc:mysql://127.0.0.1:3306/demo?serverTimezone=GMT%2B8&characterEncoding=UTF-8
+    dbcp2:
+      initial-size: 20
+      min-evictable-idle-time-millis: 3600000
+      default-auto-commit: true
+    tomcat:
+      max-active: 50
+    jpa:
+      show-sql: true
+    jackson:
+      default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
+#  单机版的redis
+  redis:
+    host: 121.2131.1231
+    port: 6379
+    password: 111
+    #    集群redis
+#    sentinel:
+#      master: myMaster
+#      nodes: sentinel1:26379,sentinel2:26379,sentinel3:26379
+#  指定缓存类型
+  cache:
+    type: redis
+#    设置cache名称
+    cache-names: realTime
+
+server:
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    root: warn
+    com:
+      laishihui:
+        mybatispluse:
+          demo:
+            dao: trace
+  pattern:
+    console: '%p%m%n'
